@@ -1,4 +1,4 @@
-package com.server.resource.management.application;
+package com.server.resource.management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
