@@ -54,15 +54,15 @@ public class ServerResource extends BaseTimeEntity{
         if (totalCpu - (this.usedCpu + requestCpu) < 0) {
             throw new IllegalArgumentException("할당할 수 있는 CPU 의 양을 초과했습니다. 잔여 CPU: " + remainCpu() + " 요청 CPU: " + requestCpu);
         }
-        if (requestMemory - (this.usedMemory + requestMemory) < 0) {
-            throw new IllegalArgumentException("할당할 수 있는 CPU 의 양을 초과했습니다. 잔여 CPU: " + remainMemory() + " 요청 CPU: " + requestMemory);
+        if (this.totalMemory - (this.usedMemory + requestMemory) < 0) {
+            throw new IllegalArgumentException("할당할 수 있는 Memory 의 양을 초과했습니다. 잔여 Memory: " + remainMemory() + " 요청 Memory: " + requestMemory);
         }
     }
 
     public void addUsedResource(long requestCpu, long requestMemory) {
         validateUsedResource(requestCpu, requestMemory);
-        this.usedCpu = requestCpu;
-        this.usedMemory = requestMemory;
+        this.usedCpu = this.usedCpu + requestCpu;
+        this.usedMemory = this.usedMemory + requestMemory;
     }
 
     public long remainCpu() {

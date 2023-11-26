@@ -21,8 +21,31 @@ public class User extends BaseTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
+
     private String name;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<UserResource> usedResources = new ArrayList<>();
+    private List<UserResource> usedResources;
+
+    private User(String name) {
+        this.name = name;
+        usedResources = new ArrayList<>();
+    }
+
+    private User(String name, List<UserResource> usedResources) {
+        this.name = name;
+        this.usedResources = usedResources;
+    }
+
+    public static User of(String name) {
+        return new User(name);
+    }
+
+    public static User from(String name, List<UserResource> usedResources) {
+        return new User(name, usedResources);
+    }
+
+    public void addUsedResource(UserResource requestResource) {
+        this.usedResources.add(requestResource);
+    }
 }
