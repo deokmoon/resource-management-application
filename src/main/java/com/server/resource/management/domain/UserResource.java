@@ -52,6 +52,22 @@ public class UserResource {
         return this.serverResource.getServerVersion();
     }
 
+    public long getServerId() {
+        return this.serverResource.getId();
+    }
+
+    public String getServerName() {
+        return this.serverResource.getName();
+    }
+
+    public long getServerTotalCpu() {
+        return this.serverResource.getTotalCpu();
+    }
+
+    public long getServerTotalMemory() {
+        return this.serverResource.getTotalMemory();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

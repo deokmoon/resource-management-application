@@ -93,4 +93,20 @@ public class ServerResource extends BaseTimeEntity{
     public long getServerVersion() {
         return this.version;
     }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public long getTotalCpu() {
+        return totalCpu;
+    }
+
+    public long getTotalMemory() {
+        return totalMemory;
+    }
 }

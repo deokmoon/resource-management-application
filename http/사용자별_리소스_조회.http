@@ -1,0 +1,3 @@
+### [정상] 사용자별 리소스를 조회 한다.
+GET http://localhost:8080/resource/user?userName=testName
+Content-Type: application/json

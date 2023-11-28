@@ -9,6 +9,18 @@ Content-Type: application/json
   "serverId": 1
 }
 
+
+### [정상] 리소스를 생성한다.
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 5,
+  "userName": "testName",
+  "serverId": 2
+}
+
 ### [비정상] 리소스를 1개 미만으로 요청하면 에러가 발생한다.
 POST http://localhost:8080/resource?cpu=1&memory=0
 Content-Type: application/json

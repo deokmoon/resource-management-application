@@ -8,10 +8,14 @@ import com.server.resource.management.domain.repository.UserRepository;
 import com.server.resource.management.domain.repository.UserResourceRepository;
 import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
+import com.server.resource.management.ui.dto.UserResourceListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
@@ -44,6 +48,16 @@ public class ServerResourceService {
         ServerResource serverResource = findServerById(requestDto.getServerId());
         User user = findUserByName(requestDto.getUserName());
         serverResource.removeUsedResource(findUserResourceByUserAndServerResource(user, serverResource));
+    }
+
+    @Transactional(readOnly = true)
+    public List<UserResourceListResponseDto> showUserResourceList(String userName) {
+        User user = findUserByName(userName);
+        List<UserResource> userResources = userResourceRepository.findByUser(user);
+
+        return userResources.stream()
+                .map(userResource -> UserResourceListResponseDto.from(userResource))
+                .collect(Collectors.toList());
     }
 
     private void saveUserResource(UserResource userResource) {
@@ -79,4 +93,5 @@ public class ServerResourceService {
             throw new IllegalArgumentException("동시성 문제 발생 재 수행 필요");
         }
     }
+
 }
