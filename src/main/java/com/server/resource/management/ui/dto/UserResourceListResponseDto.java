@@ -3,10 +3,8 @@ package com.server.resource.management.ui.dto;
 import com.server.resource.management.domain.UserResource;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 
 @Getter
-@NoArgsConstructor
 @AllArgsConstructor
 public class UserResourceListResponseDto {
     private String userName;

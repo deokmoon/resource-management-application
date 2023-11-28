@@ -3,6 +3,7 @@ package com.server.resource.management.ui;
 import com.server.resource.management.application.ServerResourceService;
 import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
+import com.server.resource.management.ui.dto.ServerResourceUsageStateResponseDto;
 import com.server.resource.management.ui.dto.UserResourceListResponseDto;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -55,6 +56,16 @@ public class ServerResourceController {
     @GetMapping("/user")
     public ResponseEntity<List<UserResourceListResponseDto>> showUserResourceList(@RequestParam @NotBlank String userName) {
         return ResponseEntity.ok(serverResourceService.showUserResourceList(userName));
+    }
+
+    @GetMapping("/server")
+    public ResponseEntity<ServerResourceUsageStateResponseDto> showServerResource(@RequestParam Long serverId) {
+        return ResponseEntity.ok(serverResourceService.showServerResource(serverId));
+    }
+
+    @GetMapping("/all/server")
+    public ResponseEntity<List<ServerResourceUsageStateResponseDto>> showServerResource() {
+        return ResponseEntity.ok(serverResourceService.showServerResource());
     }
 
 

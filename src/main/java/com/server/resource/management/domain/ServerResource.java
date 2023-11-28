@@ -109,4 +109,12 @@ public class ServerResource extends BaseTimeEntity{
     public long getTotalMemory() {
         return totalMemory;
     }
+
+    public long getUsedCpu() {
+        return usedCpu;
+    }
+
+    public long getUsedMemory() {
+        return usedMemory;
+    }
 }

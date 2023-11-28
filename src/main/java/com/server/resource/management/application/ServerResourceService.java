@@ -8,6 +8,7 @@ import com.server.resource.management.domain.repository.UserRepository;
 import com.server.resource.management.domain.repository.UserResourceRepository;
 import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
+import com.server.resource.management.ui.dto.ServerResourceUsageStateResponseDto;
 import com.server.resource.management.ui.dto.UserResourceListResponseDto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -60,6 +61,20 @@ public class ServerResourceService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public ServerResourceUsageStateResponseDto showServerResource(Long serverId) {
+        ServerResource serverResource = findServerById(serverId);
+        return ServerResourceUsageStateResponseDto.from(serverResource);
+    }
+
+    @Transactional(readOnly = true)
+    public List<ServerResourceUsageStateResponseDto> showServerResource() {
+        List<ServerResource> serverResources = serverResourceRepository.findAll();
+        return serverResources.stream()
+                .map(serverResource -> ServerResourceUsageStateResponseDto.from(serverResource))
+                .collect(Collectors.toList());
+    }
+
     private void saveUserResource(UserResource userResource) {
         userResourceRepository.findByUserAndServerResource(userResource.getUser(), userResource.getServerResource())
                 .orElseGet(() -> createUserResource(userResource));
@@ -93,5 +108,4 @@ public class ServerResourceService {
             throw new IllegalArgumentException("동시성 문제 발생 재 수행 필요");
         }
     }
-
 }

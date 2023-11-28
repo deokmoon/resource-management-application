@@ -1,0 +1,7 @@
+### [정상] 특정 서버 리소스를 조회 한다.
+GET http://localhost:8080/resource/server?serverId=1
+Content-Type: application/json
+
+### [정상] 모든 서버 리소스를 조회 한다.
+GET http://localhost:8080/resource/all/server
+Content-Type: application/json
