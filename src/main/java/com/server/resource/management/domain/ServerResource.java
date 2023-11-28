@@ -66,11 +66,23 @@ public class ServerResource extends BaseTimeEntity{
         this.userResources.add(userResource);
     }
 
+    public void removeUsedResource(UserResource userResource) {
+        long usedCpu = userResource.getUsedCpu();
+        long usedMemory = userResource.getUsedMemory();
+        this.userResources.remove(userResource);
+        this.usedCpu = this.usedCpu - usedCpu;
+        this.usedMemory = this.usedMemory - usedMemory;
+    }
+
     public long remainCpu() {
         return this.totalCpu - this.usedCpu;
     }
 
     public long remainMemory() {
         return this.totalMemory - this.usedMemory;
+    }
+
+    public List<UserResource> getUserResources() {
+        return this.userResources;
     }
 }

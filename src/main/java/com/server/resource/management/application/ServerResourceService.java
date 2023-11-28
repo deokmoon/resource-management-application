@@ -6,6 +6,7 @@ import com.server.resource.management.domain.UserResource;
 import com.server.resource.management.domain.repository.ServerResourceRepository;
 import com.server.resource.management.domain.repository.UserRepository;
 import com.server.resource.management.domain.repository.UserResourceRepository;
+import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,13 @@ public class ServerResourceService {
         User user = findUserByName(requestDto.getUserName());
         UserResource userResource = findUserResourceByUserAndServerResource(user, serverResource);
         userResource.modifyUsingResource(requestDto.getCpu(), requestDto.getMemory());
+    }
+
+    @Transactional
+    public void deleteResource(DeleteResourceRequestDto requestDto) {
+        ServerResource serverResource = findServerById(requestDto.getServerId());
+        User user = findUserByName(requestDto.getUserName());
+        serverResource.removeUsedResource(findUserResourceByUserAndServerResource(user, serverResource));
     }
 
     private void saveUserResource(UserResource userResource) {

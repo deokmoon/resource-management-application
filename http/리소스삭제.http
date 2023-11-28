@@ -1,0 +1,8 @@
+### [정상] 리소스를 삭제한다.
+DELETE http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "userName": "testName",
+  "serverId": 1
+}

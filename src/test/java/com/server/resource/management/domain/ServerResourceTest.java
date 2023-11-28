@@ -60,4 +60,16 @@ class ServerResourceTest {
 
     }
 
+    @DisplayName("사용자의 특정 서버에 있는 리소스를 삭제할 수 있다.")
+    @Test
+    final void removeUserResourceTest() {
+        // given
+        ServerResource serverResource = ServerResource.from(testServerName, totalCpu, totalMemory);
+        userResource = UserResource.from(1L, 10L, serverResource, user);
+        // when
+        serverResource.removeUsedResource(userResource);
+        // then
+        assertThat(serverResource.getUserResources().stream().anyMatch(e -> e.equals(userResource))).isFalse();
+    }
+
 }

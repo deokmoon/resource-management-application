@@ -1,12 +1,14 @@
 package com.server.resource.management.ui;
 
 import com.server.resource.management.application.ServerResourceService;
+import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -31,9 +33,16 @@ public class ServerResourceController {
 
     @Async
     @PatchMapping
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void modifyResource(@Valid @RequestBody ServerResourceRequestDto requestDto) {
         serverResourceService.modifyResource(requestDto);
+    }
+
+    @Async
+    @DeleteMapping
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteResource(@Valid @RequestBody DeleteResourceRequestDto requestDto) {
+        serverResourceService.deleteResource(requestDto);
     }
 
 
