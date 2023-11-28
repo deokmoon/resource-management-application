@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "cpu": 2,
-  "memory": 2,
-  "userName": "testName",
-  "serverId": 1
+  "memory": 5,
+  "userName": "testName2",
+  "serverId": 2
 }

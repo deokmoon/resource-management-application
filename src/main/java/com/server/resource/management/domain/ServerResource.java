@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
+import jakarta.persistence.Version;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
@@ -38,6 +39,9 @@ public class ServerResource extends BaseTimeEntity{
 
     @OneToMany(mappedBy = "serverResource", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<UserResource> userResources = new ArrayList<>();
+
+    @Version
+    private Long version;
 
     private ServerResource(String name, long totalCpu, long totalMemory) {
         this.name = name;
@@ -84,5 +88,9 @@ public class ServerResource extends BaseTimeEntity{
 
     public List<UserResource> getUserResources() {
         return this.userResources;
+    }
+
+    public long getServerVersion() {
+        return this.version;
     }
 }

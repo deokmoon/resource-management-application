@@ -1,0 +1,592 @@
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 2
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 5555,
+  "userName": "testName2",
+  "serverId": 2
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 5555,
+  "userName": "testName2",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName2",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName2",
+  "serverId": 2
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName2",
+  "serverId": 2
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 2
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+DELETE http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+DELETE http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+DELETE http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+
+POST http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 1,
+  "memory": 1,
+  "userName": "testName",
+  "serverId": 1
+}
+
+###
+

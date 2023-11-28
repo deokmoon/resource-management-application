@@ -39,16 +39,17 @@ public class UserResource {
         serverResource.addUsedResource(usedCpu, usedMemory, this);
     }
 
-    public static UserResource    from(long usedCpu, long usedMemory, ServerResource serverResource, User user) {
+    public static UserResource from(long usedCpu, long usedMemory, ServerResource serverResource, User user) {
         return new UserResource(usedCpu, usedMemory, serverResource, user);
     }
 
-    public void modifyUsingResource(long modifyCpu, long modifyMemory) {
+    public long modifyUsingResource(long modifyCpu, long modifyMemory) {
         long tempCpu = modifyCpu - this.usedCpu;
         long tempMemory = modifyMemory - this.usedMemory;
         serverResource.addUsedResource(tempCpu, tempMemory, this);
         this.usedCpu = modifyCpu;
         this.usedMemory = modifyMemory;
+        return this.serverResource.getServerVersion();
     }
 
     @Override

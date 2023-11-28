@@ -9,9 +9,11 @@ import com.server.resource.management.domain.repository.UserResourceRepository;
 import com.server.resource.management.ui.dto.DeleteResourceRequestDto;
 import com.server.resource.management.ui.dto.ServerResourceRequestDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @RequiredArgsConstructor
 @Service
 public class ServerResourceService {
@@ -25,7 +27,7 @@ public class ServerResourceService {
         ServerResource serverResource = findServerById(requestDto.getServerId());
         User user = findUserByName(requestDto.getUserName());
         saveUserResource(UserResource.from(requestDto.getCpu(), requestDto.getMemory(), serverResource, user));
-
+        checkVersion(serverResource.getServerVersion(), findServerById(requestDto.getServerId()).getServerVersion());
     }
 
     @Transactional
@@ -33,7 +35,8 @@ public class ServerResourceService {
         ServerResource serverResource = findServerById(requestDto.getServerId());
         User user = findUserByName(requestDto.getUserName());
         UserResource userResource = findUserResourceByUserAndServerResource(user, serverResource);
-        userResource.modifyUsingResource(requestDto.getCpu(), requestDto.getMemory());
+        long updateServerVersion = userResource.modifyUsingResource(requestDto.getCpu(), requestDto.getMemory());
+        checkVersion(serverResource.getServerVersion(), updateServerVersion);
     }
 
     @Transactional
@@ -69,5 +72,11 @@ public class ServerResourceService {
 
     private User createUser(String userName) {
         return userRepository.save(User.of(userName));
+    }
+
+    private void checkVersion(long beforeVersion, long afterVersion) {
+        if (beforeVersion != afterVersion) {
+            throw new IllegalArgumentException("동시성 문제 발생 재 수행 필요");
+        }
     }
 }

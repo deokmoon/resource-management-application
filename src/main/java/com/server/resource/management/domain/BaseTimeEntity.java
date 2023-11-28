@@ -16,4 +16,12 @@ public class BaseTimeEntity {
 
     @LastModifiedDate
     private LocalDateTime updateDatetime;
+
+    public LocalDateTime getCreatedDate() {
+        return createdDatetime;
+    }
+
+    public LocalDateTime getModifiedDate() {
+        return updateDatetime;
+    }
 }
