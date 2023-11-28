@@ -1,0 +1,10 @@
+### [정상] 리소스를 수정한다.
+PATCH http://localhost:8080/resource
+Content-Type: application/json
+
+{
+  "cpu": 2,
+  "memory": 2,
+  "userName": "testName",
+  "serverId": 1
+}

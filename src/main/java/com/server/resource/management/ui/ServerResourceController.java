@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.scheduling.annotation.Async;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,13 +24,17 @@ public class ServerResourceController {
 
     @Async
     @PostMapping
-    @ResponseStatus(HttpStatus.OK)
+    @ResponseStatus(HttpStatus.CREATED)
     public void requestNewResource(@Valid @RequestBody ServerResourceRequestDto requestDto) {
-        /**
-         * 1. 사용자 name 으로 찾고 없으면 사용자 생성 후 할당
-         * 2. 수정사항도 사용자 NAME에 VALIDATION 적용
-         * 3. 리소스 삭제는, 삭제가 아닌 0으로 처리
-         */
         serverResourceService.requestNewResource(requestDto);
     }
+
+    @Async
+    @PatchMapping
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void modifyResource(@Valid @RequestBody ServerResourceRequestDto requestDto) {
+        serverResourceService.modifyResource(requestDto);
+    }
+
+
 }

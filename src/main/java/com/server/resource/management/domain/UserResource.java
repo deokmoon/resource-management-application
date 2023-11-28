@@ -10,6 +10,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.util.Objects;
+
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -47,5 +49,19 @@ public class UserResource {
         serverResource.addUsedResource(tempCpu, tempMemory, this);
         this.usedCpu = modifyCpu;
         this.usedMemory = modifyMemory;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserResource that = (UserResource) o;
+        return Objects.equals(serverResource, that.serverResource) &&
+                Objects.equals(user, that.user);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(serverResource, user);
     }
 }

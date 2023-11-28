@@ -23,7 +23,30 @@ public class ServerResourceService {
     public void requestNewResource(ServerResourceRequestDto requestDto) {
         ServerResource serverResource = findServerById(requestDto.getServerId());
         User user = findUserByName(requestDto.getUserName());
-        userResourceRepository.save(UserResource.from(requestDto.getCpu(), requestDto.getMemory(), serverResource, user));
+        saveUserResource(UserResource.from(requestDto.getCpu(), requestDto.getMemory(), serverResource, user));
+
+    }
+
+    @Transactional
+    public void modifyResource(ServerResourceRequestDto requestDto) {
+        ServerResource serverResource = findServerById(requestDto.getServerId());
+        User user = findUserByName(requestDto.getUserName());
+        UserResource userResource = findUserResourceByUserAndServerResource(user, serverResource);
+        userResource.modifyUsingResource(requestDto.getCpu(), requestDto.getMemory());
+    }
+
+    private void saveUserResource(UserResource userResource) {
+        userResourceRepository.findByUserAndServerResource(userResource.getUser(), userResource.getServerResource())
+                .orElseGet(() -> createUserResource(userResource));
+    }
+
+    private UserResource createUserResource(UserResource userResource) {
+        return userResourceRepository.save(userResource);
+    }
+
+    private UserResource findUserResourceByUserAndServerResource(User user, ServerResource serverResource) {
+        return userResourceRepository.findByUserAndServerResource(user, serverResource)
+                .orElseThrow(() -> new IllegalArgumentException("수정할 사용자 혹은 서버정보가 존재하지 않습니다.."));
     }
 
     private ServerResource findServerById(long serverId) {
@@ -33,7 +56,7 @@ public class ServerResourceService {
 
     private User findUserByName(String userName) {
         return userRepository.findByName(userName)
-                .orElse(createUser(userName));
+                .orElseGet(() -> createUser(userName));
     }
 
     private User createUser(String userName) {
