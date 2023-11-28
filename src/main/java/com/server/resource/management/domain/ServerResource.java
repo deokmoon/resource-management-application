@@ -59,10 +59,11 @@ public class ServerResource extends BaseTimeEntity{
         }
     }
 
-    public void addUsedResource(long requestCpu, long requestMemory) {
+    public void addUsedResource(long requestCpu, long requestMemory, UserResource userResource) {
         validateUsedResource(requestCpu, requestMemory);
         this.usedCpu = this.usedCpu + requestCpu;
         this.usedMemory = this.usedMemory + requestMemory;
+        this.userResources.add(userResource);
     }
 
     public long remainCpu() {

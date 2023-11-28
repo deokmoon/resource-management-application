@@ -1,5 +1,6 @@
 package com.server.resource.management.domain;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -9,15 +10,24 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 class ServerResourceTest {
 
-    private final String testName = "testServer";
+    private final String testServerName = "testServer";
+    private final String testUserName = "testUser";
     private final long totalCpu = 10L;
     private final long totalMemory = 500L;
+
+    private UserResource userResource;
+    private User user;
+
+    @BeforeEach
+    final void setUp() {
+        user = User.of(testUserName);
+    }
 
     @DisplayName("서버리소스 엔티티를 생성한다.")
     @Test
     final void createServerResource() {
         assertThatCode(
-                () -> ServerResource.from(testName, totalCpu, totalMemory))
+                () -> ServerResource.from(testServerName, totalCpu, totalMemory))
                 .doesNotThrowAnyException();
     }
 
@@ -27,9 +37,9 @@ class ServerResourceTest {
         // given
         final long requestCpu = 5L;
         final long requestMemory = 100L;
-        ServerResource serverResource = ServerResource.from(testName, totalCpu, totalMemory);
+        ServerResource serverResource = ServerResource.from(testServerName, totalCpu, totalMemory);
         // when
-        serverResource.addUsedResource(requestCpu, requestMemory);
+        userResource = UserResource.from(requestCpu, requestMemory, serverResource, user);
         // then
         assertThat(serverResource.remainCpu()).isEqualTo(totalCpu - requestCpu);
         assertThat(serverResource.remainMemory()).isEqualTo(totalMemory - requestMemory);
@@ -42,10 +52,10 @@ class ServerResourceTest {
         // given
         final long overCpu = 11L;
         final long overMemory = 501L;
-        ServerResource serverResource = ServerResource.from(testName, totalCpu, totalMemory);
+        ServerResource serverResource = ServerResource.from(testServerName, totalCpu, totalMemory);
         // when then
         assertThatThrownBy(
-                () -> serverResource.addUsedResource(overCpu, overMemory))
+                () -> userResource = UserResource.from(overCpu, overMemory, serverResource, user))
                 .isInstanceOf(IllegalArgumentException.class);
 
     }
