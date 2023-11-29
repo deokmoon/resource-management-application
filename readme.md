@@ -157,4 +157,6 @@ Content-Type: application/json
 ### 부족한 점
 - 공통 처리 AOP로 Exception 처리 및 문자열 상수화 등이 미비했습니다.
 - 보통 인수기반 시나리오 테스트코드를 작성하는데 그러지 못했습니다.
-- acceptance-test branch 에 따로 작업해서 Push 할 예정입니다.
+- acceptance-test branch 에 따로 작업해서 Push 할 예정입니다.(update)
+  - TestFactory 로 시나리오별로 테스트 코드를 작성하였습니다.
+  - CUD 관련 메서드가 비동기로 연동되어 Sleep 을 넣었습니다.
