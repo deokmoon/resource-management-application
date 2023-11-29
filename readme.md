@@ -14,6 +14,8 @@
 ## 사용한 외부 라이브러리
 - [Flyway](https://flywaydb.org/)
   - 주어진 서버 데이터를 InMemory DB에 적재 및 스키마 관리를 위해 사용했습니다.
+- [Guava](https://github.com/google/guava)
+     - 문자 대소문자 변경을 위해 사용하였습니다.
 
 ## 빌드 및 실행 방법
 ```shell

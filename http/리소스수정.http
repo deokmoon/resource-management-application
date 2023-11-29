@@ -3,7 +3,7 @@ PATCH http://localhost:8080/resource
 Content-Type: application/json
 
 {
-  "cpu": 2,
+  "cpu": 8,
   "memory": 5,
   "userName": "testName",
   "serverId": 1

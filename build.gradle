@@ -33,9 +33,11 @@ dependencies {
     // Devtools
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+    implementation group: 'com.google.guava', name: 'guava', version: '31.1-jre'
 
     // Test
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.rest-assured:rest-assured'
 }
 
 tasks.named('test') {
