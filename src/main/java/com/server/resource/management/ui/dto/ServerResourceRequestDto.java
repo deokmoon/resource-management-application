@@ -5,8 +5,10 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
+@NoArgsConstructor
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class ServerResourceRequestDto {
 
