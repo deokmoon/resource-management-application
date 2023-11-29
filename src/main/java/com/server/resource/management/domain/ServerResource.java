@@ -91,7 +91,7 @@ public class ServerResource extends BaseTimeEntity{
     }
 
     public long getServerVersion() {
-        return this.version;
+        return this.version == null ? 0 : this.version;
     }
 
     public long getId() {
